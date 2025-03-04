@@ -1,12 +1,26 @@
 {
-  "name": "cordova-vue-test",
-  "version": "0.1.0",
-  "private": true,
+  "name": "io.cordova.vuetest",
+  "displayName": "VueTest",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve",
+    "lint": "vue-cli-service lint",
+    "cordova-prepare": "cd cordova && cordova prepare",
+    "cordova-build-android": "npm run build && cordova build android",
+    "cordova-run-android": "npm run build && cordova run android",
+    "cordova-build-ios": "npm run build && cordova build ios",
+    "cordova-run-ios": "npm run build && cordova run ios",
+    "cordova-serve-android": "cd cordova && cordova run android --live-reload",
+    "cordova-serve-ios": "cd cordova && cordova run ios --live-reload"
   },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
@@ -17,6 +31,11 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "cordova-android": "^13.0.0",
+    "cordova-plugin-device": "^3.0.0",
+    "cordova-plugin-file": "^8.1.3",
+    "cordova-plugin-splashscreen": "^6.0.1",
+    "cordova-plugin-statusbar": "^4.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3"
   },
@@ -39,5 +58,18 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "cordova": {
+    "platforms": [
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-file": {
+        "ANDROIDX_WEBKIT_VERSION": "1.4.0"
+      }
+    }
+  }
 }
