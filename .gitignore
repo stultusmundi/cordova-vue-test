@@ -23,6 +23,6 @@ pnpm-debug.log*
 *.sw?
 
 # Cordova
-platforms/
-plugins/
-www/
+/platforms/
+/plugins/
+/www/
